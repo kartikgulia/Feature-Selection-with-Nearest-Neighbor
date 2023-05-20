@@ -72,15 +72,26 @@ def FS(featureNum):
 		totalcombinations = combinations(range(1, featureNum+1), i)
 
 		for j in totalcombinations:
-
-			temp = accuracy()
-			print(f"Using feature(s) {j} accuracy is {temp}%")
-			if (temp > bestAcc):
-					bestAcc = temp
-					bestSet = set(j)
-					print(f"Feature set {bestSet} was best, accuracy is {bestAcc}%")
-			else:
-				print(f"Warning, accuracy decreased!")
+			#print(f"\nj:{j}, bestSet: {bestSet}\n")
+			if (len(j) > 1 and bestSet.issubset(set(j))):
+				
+				temp = accuracy()
+				print(f"Using feature(s) {j} accuracy is {temp}%")
+				if (temp > bestAcc):
+						bestAcc = temp
+						bestSet = set(j)
+						print(f"Feature set {bestSet} was best, accuracy is {bestAcc}%")
+				else:
+					print(f"Warning, accuracy decreased!")
+			elif (len(j) == 1):
+				temp = accuracy()
+				print(f"Using feature(s) {j} accuracy is {temp}%")
+				if (temp > bestAcc):
+						bestAcc = temp
+						bestSet = set(j)
+						print(f"Feature set {bestSet} was best, accuracy is {bestAcc}%")
+				else:
+					print(f"Warning, accuracy decreased!")
 		# if (bestSet.issubset(set(j))):
 		# 	break
 	print(f"Finished Search. Best Feature subset is {bestSet}, which has an accurary of {bestAcc}%")
