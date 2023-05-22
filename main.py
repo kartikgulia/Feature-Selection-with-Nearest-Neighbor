@@ -16,7 +16,7 @@ if algoNum == 1:
 	#print("testtttttt")
 	FS(featureNum)
 elif (algoNum == 2):
-	BE()
+	BE(featureNum)
 else:
 	print("Invalid Input")
 	sys.exit()
