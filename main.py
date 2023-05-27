@@ -5,6 +5,17 @@ from forwardSelection import FS
 
 print("Welcome to Group 31's Feature Select Algorithm")
 
+try:
+    file_name = input("Enter the file name: ")
+    file = open(file_name, "r") 
+
+    file.close()  # Remember to close the file after you're done
+except FileNotFoundError:
+    print("Invalid file name")
+                   
+
+
+
 print("Please enter total numbers of features:")
 featureNum = int(input())
 
