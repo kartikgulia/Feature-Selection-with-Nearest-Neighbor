@@ -21,6 +21,7 @@ class Classifier:
 
 
     def test(self, test_instance) -> float:
+        number_correctly_classfied = 0
         object_to_classify = self.dataset[test_instance-1][1:]
         label_of_object_to_classify = self.dataset[test_instance-1][0]
         
@@ -43,10 +44,11 @@ class Classifier:
             if distance < nearestNeighborDistance:
                 nearestNeighborDistance = distance
                 nearestNeighborClass = classLabelForEachInstance
-
+        
+        
         return nearestNeighborClass
 
-
+    
             
 
             
