@@ -18,19 +18,20 @@ class Classifier:
         self.datasetWithOnlySubsetOfFeatures = datasetWithOnlySubsetOfFeatures
         self.idToRowData = dict()
 
+    def clearDictionary(self):
+        self.idToRowData.clear()
 
     def train(self, trainingInstanceIds: List[int]) -> None:
         
         for rowNumber in trainingInstanceIds:
-            rowIndex = rowNumber - 1
+            rowIndex = rowNumber 
             rowData: List[float] = self.datasetWithOnlySubsetOfFeatures[rowIndex]
             self.idToRowData[rowNumber] = rowData
 
 
     def test(self, test_instance : int) -> float:
 
-        number_correctly_classfied = 0
-        test_index = test_instance - 1
+        test_index = test_instance
 
         label_of_object_to_classify = self.datasetWithOnlySubsetOfFeatures[test_instance-1][0]
         object_to_classify = self.datasetWithOnlySubsetOfFeatures[test_index][1:]
@@ -69,8 +70,4 @@ class Classifier:
         
 
 
-inputData = [[2.0000, 1000,1000 ] , [2.0000, 100,100 ], [1.0000, 1,1 ] , [1.0000, 6.5,7.5 ]  ]
 
-c = Classifier(inputData)
-c.train([1,2,4])
-print(c.test(3))
