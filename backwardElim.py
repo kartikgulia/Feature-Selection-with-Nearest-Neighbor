@@ -1,7 +1,7 @@
 from itertools import combinations
 from randAccuracy import accuracy
-
-def BE(featureNum):
+from Validator import Validator
+def BE(featureNum,textfileName):
     bestSet = list(range(1, featureNum + 1))
     bestAcc = accuracy()
     currSet = bestSet.copy()
@@ -20,7 +20,8 @@ def BE(featureNum):
             if j in currSet:
                 node = currSet.copy()
                 node.remove(j)
-                temp = accuracy()
+                v : Validator = Validator(node,textfileName)
+                temp = v.calculate_accuracy()
                 print(f"Using feature(s) {sorted(node)} accuracy is {temp}%")
                 if temp > currAcc:
                     currAcc = temp

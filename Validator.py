@@ -52,8 +52,8 @@ class Validator:
 		return numberOfCorrectPredictions / numberOfRows
 	
 
-v = Validator([3,5,7] , "small-test-dataset.txt")
-print(v.calculate_accuracy())
+# v = Validator([3,5,7] , "small-test-dataset.txt")
+# print(v.calculate_accuracy())
 
-v = Validator([1,15,27] , "large-test-dataset-1.txt")
-print(v.calculate_accuracy())
+# v = Validator([1,15,27] , "large-test-dataset-1.txt")
+# print(v.calculate_accuracy())

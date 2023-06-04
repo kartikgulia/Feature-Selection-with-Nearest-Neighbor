@@ -25,9 +25,9 @@ algoNum = int(input())
 #print(f"test {algoNum}")
 if algoNum == 1:
 	#print("testtttttt")
-	FS(featureNum)
+	FS(featureNum, file_name)
 elif (algoNum == 2):
-	BE(featureNum)
+	BE(featureNum,file_name)
 else:
 	print("Invalid Input")
 	sys.exit()
