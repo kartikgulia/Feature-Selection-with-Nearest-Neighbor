@@ -9,12 +9,12 @@ def BE(featureNum, textfileName):
   print("Beginning Search.")
 
   if featureNum == 1:
-    print("Using feature(s) [1] accuracy is", bestAcc, "%")
+    print("Using feature(s) [1] accuracy is", bestAcc * 100, "%")
     print(
       "Warning: Accuracy cannot be improved further by removing any feature!")
     print(
       "Finished Search! The best feature subset is [1] which has an accuracy of",
-      bestAcc, "%")
+      bestAcc * 100, "%")
     return
 
   for i in range(featureNum - 1, 0, -1):
@@ -26,7 +26,7 @@ def BE(featureNum, textfileName):
         node.remove(j)
         v: Validator = Validator(node, textfileName)
         temp = v.calculate_accuracy()
-        print(f"Using feature(s) {sorted(node)} accuracy is {temp}%")
+        print(f"Using feature(s) {sorted(node)} accuracy is {temp*100:.2f}%")
         if temp > currAcc:
           currAcc = temp
           featureToRemove = j
@@ -34,10 +34,14 @@ def BE(featureNum, textfileName):
       currSet.remove(featureToRemove)
       bestSet = currSet.copy()
       bestAcc = currAcc
-      print(f"Feature set {sorted(currSet)} was best, accuracy is {bestAcc}%")
+      print(
+        f"Feature set {sorted(currSet)} was best, accuracy is {bestAcc*100:.2f}%"
+      )
     elif currAcc < bestAcc:
       currSet.remove(featureToRemove)
-      print(f"Feature set {sorted(currSet)} was best, accuracy is {currAcc}%")
+      print(
+        f"Feature set {sorted(currSet)} was best, accuracy is {currAcc*100:.2f}%"
+      )
     else:
       print(
         f"Warning: Accuracy cannot be improved further by removing any feature!"
@@ -47,5 +51,5 @@ def BE(featureNum, textfileName):
   if not bestSet:
     print("Warning: Empty feature set!")
   print(
-    f"Finished Search! The best feature subset is {bestSet} which has an accuracy of {bestAcc}%"
+    f"Finished Search! The best feature subset is {bestSet} which has an accuracy of {bestAcc*100:.2f}%"
   )
