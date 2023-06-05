@@ -6,6 +6,7 @@ def BE(featureNum, textfileName):
   bestSet = list(range(1, featureNum + 1))
   bestAcc = 0.0
   currSet = bestSet.copy()
+  bestSetLength2 = []
   print("Beginning Search.")
 
   if featureNum == 1:
@@ -34,9 +35,14 @@ def BE(featureNum, textfileName):
       currSet.remove(featureToRemove)
       bestSet = currSet.copy()
       bestAcc = currAcc
-      print(
-        f"Feature set {sorted(currSet)} was best, accuracy is {bestAcc*100:.2f}%"
-      )
+      print(f"Feature set {sorted(currSet)} was best, accuracy is {bestAcc*100:.2f}%")
+
+      if(len(currSet) == 2):
+        bestSetLength2 = currSet
+      
+  
+                                  
+
     elif currAcc < bestAcc:
       currSet.remove(featureToRemove)
       print(

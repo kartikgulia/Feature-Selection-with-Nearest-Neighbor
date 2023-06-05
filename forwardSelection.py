@@ -3,10 +3,15 @@ from itertools import combinations
 import copy
 from Validator import Validator
 
+from plotTrace import plotTraceGraph
+
 def FS(featureNum, textfileName):
 	bestSet = []
 	bestAcc = 0.0
 	currSet = []
+
+	bestSetLength2 = []
+
 	print("Beginning Search.")
 	for i in range(featureNum):
 		currAcc = 0.0
@@ -29,9 +34,14 @@ def FS(featureNum, textfileName):
 			currSet.append(bestChecker)
 			bestSet.append(bestChecker)
 			print(f"Feature set {sorted(currSet)} was best, accuracy is {bestAcc}%")
+
+			if(len(currSet) == 2):
+				bestSetLength2 = currSet
 		else:
 			currSet.append(worseChecker)
 			print(f"(Warning, Accuracy has decreased!!)")
 			print(f"Feature set {sorted(currSet)} was best, accuracy is {currAcc}%")
 
 	print(f"Finished Search! The best feature subset is {bestSet} which has an accuracy of {bestAcc}%")
+
+	plotTraceGraph(bestSetLength2, textfileName)
