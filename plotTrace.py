@@ -27,18 +27,5 @@ def plotTraceGraph(featureSubset, fileName):
     plt.show()
 
 
-import itertools
-
-def generate_combinations():
-    numbers = list(range(1, 41))
-    combinations = list(itertools.combinations(numbers, 2))
-    return combinations
-
-combinations = generate_combinations()
-print(combinations)
-
-v : Validator = Validator([1,2],"CS170_Spring_2023_Large_data__31.txt")
-
-
 
 
