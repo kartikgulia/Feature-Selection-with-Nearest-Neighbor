@@ -13,8 +13,8 @@ try:
 except FileNotFoundError:
     print("Invalid file name")
                    
-#CS170_Spring_2023_Small_data__31.txt
-#CS170_Spring_2023_Large_data__31.txt
+#CS170_Spring_2023_Small_data__31.txt 10 features
+#CS170_Spring_2023_Large_data__31.txt 40 features
 
 
 
